@@ -15,7 +15,7 @@ PASSWORD = 'huff-puff'
 @pytest.fixture
 def client():
     os.environ['JWT_SECRET'] = SECRET
-    main.APP.config['TESTING'] = False
+    main.APP.config['TESTING'] = True
     client = main.APP.test_client()
 
     yield client
@@ -24,9 +24,9 @@ def client():
 
 def test_health(client):
     response = client.get('/')
-    assert response.status_code == 200
-    assert response.json == 'Healthy'
-
+    assert response.status_code == 400
+    assert response.json == 'Healthyj'
+    
 
 def test_auth(client):
     body = {'email': EMAIL,
