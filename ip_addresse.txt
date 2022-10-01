@@ -1,0 +1,2 @@
+curl --request GET 'a8483413028844058b73845536a656b6-173032058.us-east-2.elb.amazonaws.com/contents' -H "Authorization: Bearer ${TOKEN}" | jq 
+
